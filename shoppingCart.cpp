@@ -31,7 +31,7 @@ vector<string> parse(string line, char delimiter);
 string generateOrderNum();
 void selectionSort(Customer array[], int Length);
 void menu();
-
+void bubbleSort(Customer arr[], int n);
 
 int main()
 {  
@@ -203,5 +203,30 @@ void menu()
     else
         exit(0);   
 }
+// Function to sort customers by customer number.
+
+void bubbleSort(Customer arr[], int n) 
+{ 
+   Customer temp;
+   bool swapped; 
+   for (int i = 0; i < n-1; i++) 
+   { 
+     swapped = false; 
+     for (int j = 0; j < n-i-1; j++) 
+     { 
+        if (arr[j].customerNum > arr[j+1].customerNum) 
+        { 
+           temp = arr[j];
+           arr[j] = arr[j+1];
+           arr[j+1] = temp;
+           swapped = true; 
+        } 
+     } 
+  
+     // IF no two elements were swapped by inner loop, then break 
+     if (swapped == false) 
+        break; 
+   } 
+} 
 
 
